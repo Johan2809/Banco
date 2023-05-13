@@ -1,0 +1,99 @@
+package model;
+
+import javax.swing.JOptionPane;
+
+public class CuentaBancaria {
+
+
+    private double saldo;
+    private tipoCuenta tipoCuenta;
+    private String numeroCuenta;
+    private String nombreTitular;
+
+
+	public CuentaBancaria()
+	{
+		super();
+	}
+
+	public CuentaBancaria(double saldo,co.edu.uniquindio.biblioteca.model.tipoCuenta tipoCuenta,String numeroCuenta,String nombreTitular)
+	{
+		super();
+		this.saldo=saldo;
+		this.tipoCuenta=tipoCuenta;
+		this.numeroCuenta=numeroCuenta;
+		this.nombreTitular=nombreTitular;
+	}
+
+
+
+
+	public double getSaldo()
+	{
+		return saldo;
+	}
+
+	public void setSaldo(double saldo)
+	{
+		this.saldo=saldo;
+	}
+
+	public tipoCuenta getTipoCuenta()
+	{
+		return tipoCuenta;
+	}
+
+	public void setTipoCuenta(tipoCuenta tipoCuenta)
+	{
+		this.tipoCuenta=tipoCuenta;
+	}
+
+	public String getNumeroCuenta()
+	{
+		return numeroCuenta;
+	}
+
+	public void setNumeroCuenta(String numeroCuenta)
+	{
+		this.numeroCuenta=numeroCuenta;
+	}
+
+	public String getNombreTitular()
+	{
+		return nombreTitular;
+	}
+
+	public void setNombreTitular(String nombreTitular)
+	{
+		this.nombreTitular=nombreTitular;
+	}
+
+	public void retirarDinero(double valor)throws Exception {
+        if (valor <= saldo) {
+            saldo -= valor;
+            JOptionPane.showMessageDialog(null, "Retiro exitoso");
+        } else {
+        	throw new Exception("dinero insuficiente");
+        }
+    }
+
+    public void transferirDinero(CuentaBancaria cuentaDestino, double valor)throws Exception  {
+        if (valor <= saldo) {
+            saldo -= valor;
+            cuentaDestino.depositarDinero(valor);
+            JOptionPane.showMessageDialog(null, "Transferencia exitosa");
+        } else {
+        	throw new Exception("Fondos insuficientes");
+        }
+    }
+
+    public void depositarDinero(double valor) {
+        saldo += valor;
+        JOptionPane.showMessageDialog(null, "Deposito exitoso");
+    }
+
+    public double consultarSaldo() {
+        return saldo;
+    }
+}
+

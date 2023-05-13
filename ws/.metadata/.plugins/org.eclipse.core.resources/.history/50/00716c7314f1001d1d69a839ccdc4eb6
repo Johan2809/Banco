@@ -1,0 +1,28 @@
+package test;
+
+import model.Banco;
+import model.Cliente;
+
+public class Test
+{
+
+	public static void main(String[] args)
+	{
+		Banco banco = new Banco ("MI BANCO");
+
+
+		Cliente cliente = new Cliente("andres", "gomez","12345",15,banco);
+		Cliente cliente1 = new Cliente("luis", "lopez","5454",20,banco);
+		Cliente cliente2= new Cliente("ana", "martinez ","64654",18,banco);
+		Cliente cliente3= new Cliente("maria", "ramirez","654564354",22,banco);
+
+
+		banco.getListacliente().add(cliente);
+		banco.getListacliente().add(cliente1);
+		banco.getListacliente().add(cliente2);
+		banco.getListacliente().add(cliente3);
+
+		Collections.sort(banco.getListacliente());
+		}
+
+	}

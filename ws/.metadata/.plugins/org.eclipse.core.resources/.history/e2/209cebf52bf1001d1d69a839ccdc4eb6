@@ -1,0 +1,98 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cliente implements Comparable<Cliente> {
+
+	private String nombres;
+	private String apellidos;
+	private String documento;
+	private String telefono;
+	private List<CuentaBancaria> listaCuentas = new ArrayList<CuentaBancaria>();
+	private Banco banco;
+	private int edad;
+
+
+
+	public Cliente(String nombres, String apellidos, String documento, Banco banco,
+			int edad) {
+		super();
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.documento = documento;
+		this.banco = banco;
+		this.edad = edad;
+	}
+	public String getNombres() {
+		return nombres;
+	}
+
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public String getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(String documento) {
+		this.documento = documento;
+	}
+
+	public List<CuentaBancaria> getListaCuentas() {
+		return listaCuentas;
+	}
+
+	public void setListaCuentas(List<CuentaBancaria> listaCuentas) {
+		this.listaCuentas = listaCuentas;
+	}
+
+	public Banco getBanco() {
+		return banco;
+	}
+
+	public void setBanco(Banco banco) {
+		this.banco = banco;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	@Override
+	public String toString() {
+		return "Cliente [nombres=" + nombres + ", apellidos=" + apellidos + ", documento=" + documento
+				+ ", listaCuentas=" + listaCuentas + ", banco=" + banco + "]";
+	}
+
+	@Override
+	public int compareTo(Cliente cliente) {
+		return this.getNombres().compareTo(cliente.getNombres());
+	}
+
+
+
+
+
+
+
+ }
